@@ -1,0 +1,184 @@
+Intel(R) Architecture Code Analyzer Version - 2.1
+Analyzed File - /tmp/pyop2-cache-uid134782/83dd7c462ba88963f0ed7ccf9450de5d.so
+Binary Format - 64Bit
+Architecture  - HSW
+Analysis Type - Throughput
+
+Throughput Analysis Report
+--------------------------
+Block Throughput: 43.85 Cycles       Throughput Bottleneck: FrontEnd, Port1, PORT2_AGU, PORT3_AGU
+
+Port Binding In Cycles Per Iteration:
+---------------------------------------------------------------------------------------
+|  Port  |  0   -  DV  |  1   |  2   -  D   |  3   -  D   |  4   |  5   |  6   |  7   |
+---------------------------------------------------------------------------------------
+| Cycles | 32.5   0.0  | 42.5 | 43.0   37.5 | 43.0   37.5 | 11.0 | 3.0  | 7.0  | 0.0  |
+---------------------------------------------------------------------------------------
+
+N - port number or number of cycles resource conflict caused delay, DV - Divider pipe (on port 0)
+D - Data fetch pipe (on ports 2 and 3), CP - on a critical path
+F - Macro Fusion with the previous instruction occurred
+* - instruction micro-ops not bound to a port
+^ - Micro Fusion happened
+# - ESP Tracking sync uop was issued
+@ - SSE instruction followed an AVX256 instruction, dozens of cycles penalty is expected
+! - instruction not supported, was not accounted in Analysis
+
+| Num Of |                    Ports pressure in cycles                     |    |
+|  Uops  |  0  - DV  |  1  |  2  -  D  |  3  -  D  |  4  |  5  |  6  |  7  |    |
+---------------------------------------------------------------------------------
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | mov rax, qword ptr [rsp+0x38]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm14, qword ptr [r12+rsi*1]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm9, qword ptr [rbx+rsi*1]
+|   1    |           |     |           |           |     | 1.0 |     |     |    | lea rdx, ptr [rip+0x407]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm15, qword ptr [r14+rsi*1]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm12, qword ptr [rax+rsi*1]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | mov rax, qword ptr [rsp+0x40]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm8, qword ptr [r15+rsi*1]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm5, qword ptr [rax+rsi*1]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | mov rax, qword ptr [rsp+0x28]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm4, qword ptr [rax+rsi*1]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | mov rax, qword ptr [rsp+0x30]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm0, qword ptr [rax+rsi*1]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | mov rax, qword ptr [rsp+0x48]
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vaddsd xmm11, xmm0, xmm4
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm1, qword ptr [rax+rsi*1]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | mov rax, qword ptr [rsp+0x50]
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vaddsd xmm4, xmm4, xmm12
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vaddsd xmm0, xmm0, xmm5
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vaddsd xmm5, xmm5, xmm12
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm2, qword ptr [rax+rsi*1]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | mov rax, qword ptr [rsp+0x58]
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vaddsd xmm3, xmm2, xmm1
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vsubsd xmm0, xmm0, xmm4
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm6, qword ptr [rax+rsi*1]
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vsubsd xmm1, xmm2, xmm1
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | mov rax, qword ptr [rsp+0x60]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm4, qword ptr [r11+rsi*1]
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vsubsd xmm5, xmm5, xmm11
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm2, qword ptr [r10+rsi*1]
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vsubsd xmm3, xmm3, xmm11
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vaddsd xmm1, xmm0, xmm1
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm0, qword ptr [rax+rsi*1]
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vaddsd xmm7, xmm4, xmm2
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vaddsd xmm10, xmm0, xmm6
+|   2^   | 1.0       |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmulsd xmm3, xmm3, qword ptr [rip+0x5a8]
+|   2    |           | 1.0 | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vaddsd xmm6, xmm6, qword ptr [r8+rsi*1]
+|   2    |           | 1.0 | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vaddsd xmm0, xmm0, qword ptr [r9+rsi*1]
+|   2^   | 1.0       |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmulsd xmm1, xmm1, qword ptr [rip+0x59c]
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vsubsd xmm2, xmm4, xmm2
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm4, qword ptr [r13+rsi*1]
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vsubsd xmm7, xmm7, xmm10
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vsubsd xmm0, xmm0, xmm6
+|   2^   | 1.0       |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmulsd xmm7, xmm7, qword ptr [rip+0x578]
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vaddsd xmm6, xmm8, xmm15
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vsubsd xmm8, xmm8, xmm15
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vaddsd xmm2, xmm0, xmm2
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm0, qword ptr [rbp+rsi*1]
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vaddsd xmm13, xmm0, xmm9
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vaddsd xmm0, xmm0, xmm4
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vaddsd xmm9, xmm9, xmm14
+|   2^   | 1.0       |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmulsd xmm2, xmm2, qword ptr [rip+0x556]
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vsubsd xmm6, xmm6, xmm13
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vsubsd xmm9, xmm0, xmm9
+|   2^   | 1.0       |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmulsd xmm6, xmm6, qword ptr [rip+0x53c]
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vaddsd xmm0, xmm9, xmm8
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vaddsd xmm8, xmm4, xmm14
+|   2^   | 1.0       |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmulsd xmm0, xmm0, qword ptr [rip+0x532]
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vsubsd xmm8, xmm8, xmm13
+|   2^   | 1.0       |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmulsd xmm8, xmm8, qword ptr [rip+0x51d]
+|   2^   | 1.0       |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmulsd xmm5, xmm5, qword ptr [rip+0x515]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | mov rax, qword ptr [rsp+0x68]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm4, qword ptr [r9+rsi*1]
+|   1    | 1.0       |     |           |           |     |     |     |     |    | vmulsd xmm9, xmm0, xmm3
+|   2    |           | 1.0 | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vaddsd xmm4, xmm4, qword ptr [r8+rsi*1]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm15, qword ptr [rax+rcx*8]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | mov rax, qword ptr [rsp+0x70]
+|   1    | 1.0       |     |           |           |     |     |     |     |    | vfmsub231sd xmm9, xmm1, xmm6
+|   1    | 1.0       |     |           |           |     |     |     |     |    | vmulsd xmm1, xmm1, xmm7
+|   1    | 1.0       |     |           |           |     |     |     |     |    | vmulsd xmm6, xmm2, xmm6
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vsubsd xmm4, xmm4, xmm10
+|   1    | 1.0       |     |           |           |     |     |     |     |    | vfmsub132sd xmm2, xmm1, xmm3
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm3, qword ptr [rax+rcx*8]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | mov rax, qword ptr [rsp+0x78]
+|   1    | 1.0       |     |           |           |     |     |     |     |    | vfmsub132sd xmm0, xmm6, xmm7
+|   2^   |           |     | 0.9       | 0.1       | 1.0 |     |     |     | CP | vmovsd qword ptr [rsp], xmm3
+|   2^   | 1.0       |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmulsd xmm4, xmm4, qword ptr [rip+0x4c3]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm7, qword ptr [rax+rcx*8]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | mov rax, qword ptr [rsp+0x80]
+|   2^   |           |     | 0.5       | 0.5       | 1.0 |     |     |     | CP | vmovsd qword ptr [rsp+0x8], xmm7
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm3, qword ptr [rax+rcx*8]
+|   1    | 1.0       |     |           |           |     |     |     |     |    | vmulsd xmm4, xmm4, xmm9
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | mov rax, qword ptr [rsp+0x88]
+|   2^   |           |     | 0.1       | 0.9       | 1.0 |     |     |     | CP | vmovsd qword ptr [rsp+0x10], xmm3
+|   1    | 1.0       |     |           |           |     |     |     |     |    | vfmadd231sd xmm4, xmm5, xmm0
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm5, qword ptr [rax+rcx*8]
+|   1    | 1.0       |     |           |           |     |     |     |     |    | vfmadd132sd xmm8, xmm4, xmm2
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | mov rax, qword ptr [rsp+0x90]
+|   0*   |           |     |           |           |     |     |     |     |    | vmovapd xmm14, xmm8
+|   0*   |           |     |           |           |     |     |     |     |    | vxorpd xmm8, xmm8, xmm8
+|   2^   |           |     | 0.9       | 0.1       | 1.0 |     |     |     | CP | vmovsd qword ptr [rsp+0x18], xmm5
+|   2^   |           |     | 0.5   0.5 | 0.5   0.5 |     | 1.0 |     |     | CP | vandpd xmm14, xmm14, xmmword ptr [rip+0x489]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm7, qword ptr [rax+rcx*8]
+|   1    |           |     |           |           |     | 1.0 |     |     |    | lea rax, ptr [rip+0x25d]
+|   0*   |           |     |           |           |     |     |     |     |    | vmovapd xmm9, xmm8
+|   2^   |           |     | 0.1       | 0.9       | 1.0 |     |     |     | CP | vmovsd qword ptr [rsp+0x20], xmm7
+|   0*   |           |     |           |           |     |     |     |     |    | vmovapd xmm10, xmm8
+|   0*   |           |     |           |           |     |     |     |     |    | vmovapd xmm11, xmm8
+|   0*   |           |     |           |           |     |     |     |     |    | vmovapd xmm12, xmm8
+|   0*   |           |     |           |           |     |     |     |     |    | vmovapd xmm13, xmm8
+|   0*   |           |     |           |           |     |     |     |     |    | nop word ptr [rax+rax*1], ax
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm5, qword ptr [rax+0x8]
+|   1    |           |     |           |           |     |     | 1.0 |     |    | add rax, 0x40
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm3, qword ptr [rax-0x28]
+|   1    |           |     |           |           |     |     | 1.0 |     |    | add rdx, 0x8
+|   2^   | 1.0       |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmulsd xmm1, xmm5, qword ptr [rsp]
+|   2^   | 1.0       |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmulsd xmm0, xmm3, qword ptr [rsp+0x10]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm6, qword ptr [rax-0x40]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm4, qword ptr [rax-0x30]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm7, qword ptr [rax-0x18]
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmovsd xmm2, qword ptr [rax-0x20]
+|   1    | 1.0       |     |           |           |     |     |     |     |    | vfmadd231sd xmm1, xmm6, xmm15
+|   2^   | 1.0       |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vfmadd231sd xmm0, xmm4, qword ptr [rsp+0x8]
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vaddsd xmm1, xmm1, xmm0
+|   2^   | 0.9       | 0.1 | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmulsd xmm0, xmm7, qword ptr [rsp+0x20]
+|   2^   | 1.0       |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vfmadd231sd xmm0, xmm2, qword ptr [rsp+0x18]
+|   1    |           | 1.0 |           |           |     |     |     |     | CP | vaddsd xmm0, xmm1, xmm0
+|   2^   | 0.9       | 0.1 | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vmulsd xmm1, xmm14, qword ptr [rdx-0x8]
+|   1    |           |     |           |           |     |     | 1.0 |     |    | cmp rax, rdi
+|   1    | 1.0       |     |           |           |     |     |     |     |    | vmulsd xmm6, xmm1, xmm6
+|   1    | 0.9       | 0.1 |           |           |     |     |     |     | CP | vmulsd xmm5, xmm1, xmm5
+|   1    | 0.9       | 0.2 |           |           |     |     |     |     | CP | vmulsd xmm4, xmm1, xmm4
+|   1    | 0.9       | 0.1 |           |           |     |     |     |     | CP | vmulsd xmm3, xmm1, xmm3
+|   1    | 0.5       | 0.5 |           |           |     |     |     |     | CP | vmulsd xmm2, xmm1, xmm2
+|   1    | 0.6       | 0.4 |           |           |     |     |     |     | CP | vfmadd231sd xmm13, xmm6, xmm0
+|   1    | 0.4       | 0.6 |           |           |     |     |     |     | CP | vmulsd xmm7, xmm1, xmm7
+|   1    | 0.6       | 0.4 |           |           |     |     |     |     | CP | vfmadd231sd xmm12, xmm5, xmm0
+|   1    | 0.4       | 0.6 |           |           |     |     |     |     | CP | vfmadd231sd xmm11, xmm4, xmm0
+|   1    | 0.6       | 0.4 |           |           |     |     |     |     | CP | vfmadd231sd xmm10, xmm3, xmm0
+|   1    | 0.3       | 0.7 |           |           |     |     |     |     | CP | vfmadd231sd xmm9, xmm2, xmm0
+|   1    | 0.6       | 0.4 |           |           |     |     |     |     | CP | vfmadd231sd xmm8, xmm7, xmm0
+|   1    |           |     |           |           |     |     | 1.0 |     |    | jnz 0xffffffffffffff70
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | mov rax, qword ptr [rsp+0xc0]
+|   1    |           |     |           |           |     |     | 1.0 |     |    | add rsi, 0x18
+|   2    |           | 1.0 | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vaddsd xmm13, xmm13, qword ptr [rax+rcx*8]
+|   2    |           |     | 0.9       | 0.1       | 1.0 |     |     |     | CP | vmovsd qword ptr [rax+rcx*8], xmm13
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | mov rax, qword ptr [rsp+0xb8]
+|   2    |           | 1.0 | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vaddsd xmm12, xmm12, qword ptr [rax+rcx*8]
+|   2    |           |     | 0.1       | 0.9       | 1.0 |     |     |     | CP | vmovsd qword ptr [rax+rcx*8], xmm12
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | mov rax, qword ptr [rsp+0xb0]
+|   2    |           | 1.0 | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vaddsd xmm11, xmm11, qword ptr [rax+rcx*8]
+|   2    |           |     | 0.9       | 0.1       | 1.0 |     |     |     | CP | vmovsd qword ptr [rax+rcx*8], xmm11
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | mov rax, qword ptr [rsp+0xa8]
+|   2    |           | 1.0 | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vaddsd xmm10, xmm10, qword ptr [rax+rcx*8]
+|   2    |           |     | 0.1       | 0.9       | 1.0 |     |     |     | CP | vmovsd qword ptr [rax+rcx*8], xmm10
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | mov rax, qword ptr [rsp+0xa0]
+|   2    |           | 1.0 | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vaddsd xmm9, xmm9, qword ptr [rax+rcx*8]
+|   2    |           |     | 0.9       | 0.1       | 1.0 |     |     |     | CP | vmovsd qword ptr [rax+rcx*8], xmm9
+|   1    |           |     | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | mov rax, qword ptr [rsp+0x98]
+|   2    |           | 1.0 | 0.5   0.5 | 0.5   0.5 |     |     |     |     | CP | vaddsd xmm8, xmm8, qword ptr [rax+rcx*8]
+|   2    |           |     |           | 1.0       | 1.0 |     |     |     | CP | vmovsd qword ptr [rax+rcx*8], xmm8
+|   1    |           |     |           |           |     |     | 1.0 |     |    | add rcx, 0x1
+|   2^   |           |     | 0.5   0.5 | 0.5   0.5 |     |     | 1.0 |     | CP | cmp rcx, qword ptr [rsp+0xc8]
+|   0F   |           |     |           |           |     |     |     |     |    | jnz 0xfffffffffffffcbe
+Total Num Of Uops: 182
